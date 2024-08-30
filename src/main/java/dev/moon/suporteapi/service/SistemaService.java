@@ -1,6 +1,6 @@
-package service;
+package dev.moon.suporteapi.service;
 
-import model.Sistema;
+import dev.moon.suporteapi.model.Sistema;
 
 import java.util.List;
 import java.util.Optional;

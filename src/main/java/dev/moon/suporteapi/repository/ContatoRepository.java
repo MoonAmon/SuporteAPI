@@ -1,12 +1,14 @@
-package repository;
+package dev.moon.suporteapi.repository;
 
-import model.Cliente;
-import model.Contato;
+import dev.moon.suporteapi.model.Cliente;
+import dev.moon.suporteapi.model.Contato;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public interface ContatoRepository extends JpaRepository<Contato, Long> {
     void deleteByNome(String nome);
 
@@ -17,4 +19,6 @@ public interface ContatoRepository extends JpaRepository<Contato, Long> {
     Optional<Contato> findByTelefone(String telefone);
 
     Optional<List<Contato>> findByEmpresa(Cliente empresa);
+
+    void saveByEmpresa(Cliente empresa);
 }

@@ -1,9 +1,8 @@
-package model;
+package dev.moon.suporteapi.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Collection;
 import java.util.List;
 
 @Data
@@ -16,6 +15,10 @@ public class Sistema {
 
     @Column(unique = true)
     private String nome;
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private SistemaType tipo;
 
     @OneToMany(mappedBy = "sistema")
     private List<SistemaVersion> sistemaVersion;

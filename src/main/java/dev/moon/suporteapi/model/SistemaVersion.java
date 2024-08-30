@@ -1,7 +1,9 @@
-package model;
+package dev.moon.suporteapi.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.sql.Timestamp;
 
 @Data
 @Entity
@@ -15,6 +17,7 @@ public class SistemaVersion {
     private String versao;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "sistema_id", referencedColumnName = "id")
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private Sistema sistema;
+
 }

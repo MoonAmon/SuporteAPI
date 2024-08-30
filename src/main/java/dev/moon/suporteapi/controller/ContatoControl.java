@@ -1,12 +1,12 @@
-package controller;
+package dev.moon.suporteapi.controller;
 
-import model.Cliente;
-import model.Contato;
+import dev.moon.suporteapi.model.Cliente;
+import dev.moon.suporteapi.model.Contato;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.ContatoService;
+import dev.moon.suporteapi.service.ContatoService;
 
 import java.util.List;
 import java.util.Optional;

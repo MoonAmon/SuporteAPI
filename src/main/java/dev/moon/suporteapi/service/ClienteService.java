@@ -1,6 +1,6 @@
-package service;
+package dev.moon.suporteapi.service;
 
-import model.Cliente;
+import dev.moon.suporteapi.model.Cliente;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,4 +23,7 @@ public interface ClienteService {
 
     List<Cliente> findAll();
 
+    List<Cliente> saveAll(List<Cliente> clientes);
+
+    Optional<List<Cliente>> findByNomeFantasiaContainingIgnoreCase(String nome);
 }

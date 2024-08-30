@@ -1,7 +1,7 @@
-package service;
+package dev.moon.suporteapi.service;
 
-import model.Cliente;
-import model.Contato;
+import dev.moon.suporteapi.model.Cliente;
+import dev.moon.suporteapi.model.Contato;
 
 import java.util.List;
 import java.util.Optional;

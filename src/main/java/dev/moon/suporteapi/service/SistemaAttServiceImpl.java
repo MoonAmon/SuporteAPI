@@ -1,11 +1,11 @@
-package service;
+package dev.moon.suporteapi.service;
 
-import model.SistemaAtt;
+import dev.moon.suporteapi.model.SistemaAtt;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import repository.SistemaAttRepository;
+import dev.moon.suporteapi.repository.SistemaAttRepository;
 
 import java.util.List;
 import java.util.Optional;

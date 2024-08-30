@@ -1,4 +1,4 @@
-package model;
+package dev.moon.suporteapi.model;
 
 import jakarta.persistence.*;
 

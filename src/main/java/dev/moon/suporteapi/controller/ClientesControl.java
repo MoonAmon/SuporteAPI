@@ -1,11 +1,11 @@
-package controller;
+package dev.moon.suporteapi.controller;
 
-import model.Cliente;
+import dev.moon.suporteapi.model.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.ClienteService;
+import dev.moon.suporteapi.service.ClienteService;
 
 import java.util.List;
 import java.util.Optional;
@@ -56,8 +56,18 @@ public class ClientesControl {
     }
 
     @GetMapping("/nome/{nome}")
-    public ResponseEntity<Optional<List<Cliente>>> findByNome(@PathVariable String nome) {
+    public ResponseEntity<Optional<List<Cliente>>> findByNomeFantasia(@PathVariable String nome) {
         return ResponseEntity.status(HttpStatus.OK).body(clienteService.findByNome(nome));
+    }
+
+    @PostMapping("/saveAll")
+    public ResponseEntity<List<Cliente>> saveAll(@RequestBody List<Cliente> clientes) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(clienteService.saveAll(clientes));
+    }
+
+    @GetMapping("/nome/like/{nome}")
+    public ResponseEntity<Optional<List<Cliente>>> findByNomeFantasiaContainingIgnoreCase(@PathVariable String nome) {
+        return ResponseEntity.status(HttpStatus.OK).body(clienteService.findByNomeFantasiaContainingIgnoreCase(nome));
     }
 
 }

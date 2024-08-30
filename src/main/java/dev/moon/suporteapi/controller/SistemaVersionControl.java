@@ -1,11 +1,11 @@
-package controller;
+package dev.moon.suporteapi.controller;
 
-import model.SistemaVersion;
+import dev.moon.suporteapi.model.SistemaVersion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.SistemaVersionService;
+import dev.moon.suporteapi.service.SistemaVersionService;
 
 import java.util.List;
 import java.util.Optional;

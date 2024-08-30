@@ -1,7 +1,9 @@
-package model;
+package dev.moon.suporteapi.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.sql.Timestamp;
 
 @Data
 @Entity
@@ -11,11 +13,17 @@ public class SistemaAtt {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "cliente", nullable = false)
+    @JoinColumn(name = "nomeFantasia", nullable = false)
     private Cliente cliente;
 
+    private Timestamp updatedAt;
+
     @ManyToOne
-    @JoinColumn(name = "sistema", nullable = false)
+    @JoinColumn(name = "nome", nullable = false)
     private Sistema sistema;
 
+    @PrePersist
+    protected void onCreate() {
+        updatedAt = new Timestamp(System.currentTimeMillis());
+    }
 }

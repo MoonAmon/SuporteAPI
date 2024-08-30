@@ -1,10 +1,10 @@
-package model;
+package dev.moon.suporteapi.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.sql.exec.spi.StandardEntityInstanceResolver;
 
 import java.sql.Timestamp;
-import java.util.Collection;
 import java.util.List;
 
 
@@ -19,12 +19,16 @@ public class Cliente {
     @Column(nullable = false)
     private String nomeFantasia;
 
+    private String razaoSocial;
+
     private String cnpj;
 
     private Boolean isWeb;
 
     @Column(nullable = false)
     private Timestamp createdAt;
+
+    private String tokenMilvus;
 
     @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
     @Column(nullable = true)
