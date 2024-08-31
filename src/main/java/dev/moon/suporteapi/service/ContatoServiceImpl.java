@@ -1,6 +1,5 @@
 package dev.moon.suporteapi.service;
 
-import dev.moon.suporteapi.model.Cliente;
 import dev.moon.suporteapi.model.Contato;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,22 +45,22 @@ public class ContatoServiceImpl implements ContatoService {
     }
 
     @Override
-    public List<Optional<Contato>> findByNome(String nome) {
-        return contatoRepository.findByNome(nome);
-    }
-
-    @Override
     public Optional<Contato> findByTelefone(String telefone) {
         return contatoRepository.findByTelefone(telefone);
     }
 
     @Override
-    public Optional<List<Contato>> findByEmpresa(Cliente empresa) {
+    public Optional<List<Contato>> findByEmpresa(String empresa) {
         return contatoRepository.findByEmpresa(empresa);
     }
 
     @Override
     public List<Contato> findAll() {
         return contatoRepository.findAll();
+    }
+
+    @Override
+    public Optional<List<Contato>> findByNomeContainingIgnoreCase(String nome) {
+        return contatoRepository.findByNomeContainingIgnoreCase(nome);
     }
 }

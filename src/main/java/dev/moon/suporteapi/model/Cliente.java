@@ -16,7 +16,6 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private String nomeFantasia;
 
     private String razaoSocial;
@@ -25,7 +24,7 @@ public class Cliente {
 
     private Boolean isWeb;
 
-    @Column(nullable = false)
+    @Column(nullable = false, updatable = false)
     private Timestamp createdAt;
 
     private String tokenMilvus;

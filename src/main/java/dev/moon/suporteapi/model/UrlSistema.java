@@ -15,5 +15,6 @@ public class UrlSistema {
     private String urlWeb;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(nullable = false, name = "cliente_id")
     private Cliente cliente;
 }

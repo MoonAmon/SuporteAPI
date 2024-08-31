@@ -1,5 +1,6 @@
 package dev.moon.suporteapi.service;
 
+import dev.moon.suporteapi.dto.ClienteUpdateDTO;
 import dev.moon.suporteapi.model.Cliente;
 
 import java.util.List;
@@ -26,4 +27,6 @@ public interface ClienteService {
     List<Cliente> saveAll(List<Cliente> clientes);
 
     Optional<List<Cliente>> findByNomeFantasiaContainingIgnoreCase(String nome);
+
+    Cliente updateCliente(Long id, ClienteUpdateDTO clienteUpdateDTO);
 }

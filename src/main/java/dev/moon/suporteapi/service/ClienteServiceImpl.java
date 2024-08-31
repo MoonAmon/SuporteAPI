@@ -1,5 +1,6 @@
 package dev.moon.suporteapi.service;
 
+import dev.moon.suporteapi.dto.ClienteUpdateDTO;
 import dev.moon.suporteapi.model.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,6 +58,23 @@ public class ClienteServiceImpl implements ClienteService {
     @Override
     public List<Cliente> saveAll(List<Cliente> clientes) {
         return clienteRepository.saveAll(clientes);
+    }
+
+    @Override
+    public Cliente updateCliente(Long id, ClienteUpdateDTO clienteUpdateDTO) {
+        Optional<Cliente> existingCliente = clienteRepository.findById(id);
+        if (existingCliente.isPresent()) {
+            Cliente cliente = existingCliente.get();
+            Cliente clienteAtualizado = new Cliente();
+            clienteAtualizado.setNomeFantasia(clienteUpdateDTO.getNomeFantasia());
+            clienteAtualizado.setRazaoSocial(clienteUpdateDTO.getRazaoSocial());
+            clienteAtualizado.setCnpj(clienteUpdateDTO.getCnpj());
+            clienteAtualizado.setIsWeb(clienteUpdateDTO.getIsWeb());
+            clienteAtualizado.setTokenMilvus(clienteUpdateDTO.getTokenMilvus());
+            return clienteRepository.updateCliente(cliente, clienteAtualizado);
+        } else {
+            throw new RuntimeException("Cliente não encontrado");
+        }
     }
 
     @Override

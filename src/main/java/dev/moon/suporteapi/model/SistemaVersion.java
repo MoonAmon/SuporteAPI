@@ -17,7 +17,7 @@ public class SistemaVersion {
     private String versao;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "id", referencedColumnName = "id")
+    @JoinColumn(name = "sistema", referencedColumnName = "id")
     private Sistema sistema;
 
 }

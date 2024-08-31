@@ -1,6 +1,5 @@
 package dev.moon.suporteapi.service;
 
-import dev.moon.suporteapi.model.Cliente;
 import dev.moon.suporteapi.model.Contato;
 
 import java.util.List;
@@ -20,11 +19,11 @@ public interface ContatoService {
 
     Optional<Contato> findById(Long id);
 
-    List<Optional<Contato>> findByNome(String nome);
-
     Optional<Contato> findByTelefone(String telefone);
 
-    Optional<List<Contato>> findByEmpresa(Cliente empresa);
+    Optional<List<Contato>> findByEmpresa(String empresa);
+
+    Optional<List<Contato>> findByNomeContainingIgnoreCase(String nome);
 
     List<Contato> findAll();
 
